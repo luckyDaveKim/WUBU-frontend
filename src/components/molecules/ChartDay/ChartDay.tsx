@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import axios from "axios";
-
-type CandlestickProps = {
-  url: string
-}
+import { useSelector } from "react-redux";
+import { RootState } from "../../../reducers";
 
 type Data = {
   x: number;
@@ -21,11 +19,14 @@ type Response = {
   data: Data[]
 }
 
-function ChartDay({url}: CandlestickProps) {
+function ChartDay() {
+  const code = useSelector((state: RootState) => state.stock.code);
   const [data, setData] = useState<Data[]>([]);
 
   useEffect(() => {
-    axios.get<Response>(url, {
+    if (!code) return
+
+    axios.get<Response>(`http://localhost:8080/api/daily/price/companies/${code}`, {
       params: {
         'page': 2,
         'pageSize': 100
@@ -34,7 +35,7 @@ function ChartDay({url}: CandlestickProps) {
       .then((res) => res.data)
       .then(({data}) => setData(data))
       .catch(err => console.error(err))
-  }, [])
+  }, [code])
 
   const options = {
     chart: {

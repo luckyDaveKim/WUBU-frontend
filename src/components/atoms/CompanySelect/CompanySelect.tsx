@@ -3,6 +3,7 @@ import Select from "react-select";
 import { FixedSizeList as List } from "react-window";
 import axios from "axios";
 import { ValueType } from "react-select/src/types";
+import useControllerActions from "../../../hooks/controller/userControllerAction";
 
 type OptionType = {
   value: String;
@@ -39,6 +40,7 @@ function MenuList({
 }
 
 function CompanySelect() {
+  const controllerActions = useControllerActions();
   const [options, setOptions] = useState<OptionType[]>([])
   const [loading, setLoading] = useState<boolean>(true)
 
@@ -52,8 +54,7 @@ function CompanySelect() {
   }, [])
 
   const onChange = function (value: ValueType<OptionType, false>) {
-    console.log(value?.value)
-    console.log(value?.label)
+    controllerActions.setCode(value?.value)
   }
 
   return (
