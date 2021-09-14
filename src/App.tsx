@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import ChartDay from "./components/molecules/ChartDay/ChartDay";
+import CompanySelect from "./components/atoms/CompanySelect/CompanySelect";
 
 function App() {
   return (
@@ -449,6 +450,28 @@ function App() {
               </div>
             </div>
           </div>
+
+
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="ibox">
+                <div className="ibox-title">
+                  <h5>회사 선택 <small>주식</small></h5>
+                </div>
+                <div className="ibox-content">
+                  <div className="row">
+                    <div className="col-md-4">
+                      <p>
+                        회사
+                      </p>
+                      <CompanySelect/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="row">
             <div className="col-lg-12">
               <div className="ibox ">
