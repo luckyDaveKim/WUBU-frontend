@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import ChartDay from "./components/molecules/ChartDay/ChartDay";
 
 function App() {
   return (
@@ -464,9 +465,7 @@ function App() {
                 <div className="ibox-content">
                   <div className="row">
                     <div className="col-lg-9">
-                      <div className="flot-chart">
-                        <div className="flot-chart-content" id="flot-dashboard-chart"></div>
-                      </div>
+                      <ChartDay url={'http://localhost:8080/api/daily/price/companies/000020'}/>
                     </div>
                     <div className="col-lg-3">
                       <ul className="stat-list">
