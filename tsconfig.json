@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
+    "typeRoots": [
+      "./node_movuldes/@types",
+      "./@types"
+    ],
+    "declaration": true,
+    "declarationDir": "./@types",
     "target": "es5",
     "lib": [
       "dom",

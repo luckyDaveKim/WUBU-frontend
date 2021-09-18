@@ -2,6 +2,7 @@ import CompanySelect from "../../atoms/CompanySelect/CompanySelect";
 import ChartDay from "../../molecules/ChartDay/ChartDay";
 import React from "react";
 import VolumeStockChart from "../../atoms/VolumeStockChart/VolumeStockChart";
+import CompanyDualList from "../../atoms/CompanyDualList/CompanyDualList";
 
 function Dashboard() {
   return (
@@ -466,11 +467,19 @@ function Dashboard() {
                       </p>
                       <CompanySelect/>
                     </div>
+
+                    <div className="col-md-8">
+                      <p>
+                        회사
+                      </p>
+                      <CompanyDualList/>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
 
           <div className="row">
             <div className="col-lg-12">

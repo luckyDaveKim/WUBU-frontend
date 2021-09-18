@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/fontawesome.min.css';
+import 'react-dual-listbox/lib/react-dual-listbox.css'
 import './css/animate.css';
 import './css/style.css';
 
