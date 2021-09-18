@@ -10,6 +10,13 @@ type OptionType = {
   label: String;
 }
 
+type CompanyType = {
+  code: String;
+  name: String;
+}
+
+type Response = CompanyType[]
+
 type Props = {
   options: any;
   children: any;
@@ -42,14 +49,18 @@ function MenuList({
 function CompanySelect() {
   const controllerActions = useControllerActions();
   const [options, setOptions] = useState<OptionType[]>([])
-  const [loading, setLoading] = useState<boolean>(true)
+
+  const loadCompaniesRes = (companiesRes: Response) => {
+    const options: OptionType[] = companiesRes.map(({code, name}) => {
+      return {'value': code, 'label': `${name} (${code})`} as OptionType
+    })
+
+    setOptions(options)
+  }
 
   useEffect(() => {
-    axios.get('http://localhost:8080/api/companies')
-      .then(({data}) => {
-        setOptions(data)
-        setLoading(false)
-      })
+    axios.get('http://localhost:8080/api/companies/favorite')
+      .then(({data: companiesRes}) => loadCompaniesRes(companiesRes))
       .catch(err => console.error(err))
   }, [])
 
@@ -60,7 +71,6 @@ function CompanySelect() {
   return (
     <Select options={options}
             components={{MenuList}}
-            isLoading={loading}
             onChange={onChange}/>
   );
 }
