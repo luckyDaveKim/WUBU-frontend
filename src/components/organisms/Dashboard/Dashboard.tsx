@@ -3,6 +3,7 @@ import ChartDay from "../../molecules/ChartDay/ChartDay";
 import React from "react";
 import VolumeStockChart from "../../atoms/VolumeStockChart/VolumeStockChart";
 import CompanyDualList from "../../atoms/CompanyDualList/CompanyDualList";
+import DailyTrendMinutelyChart from "../../atoms/DailyTrendMinutelyChart/DailyTrendMinutelyChart";
 
 function Dashboard() {
   return (
@@ -693,60 +694,7 @@ function Dashboard() {
                       </div>
                     </div>
                     <div className="ibox-content table-responsive">
-                      <table className="table table-hover no-margins">
-                        <thead>
-                        <tr>
-                          <th>Status</th>
-                          <th>Date</th>
-                          <th>User</th>
-                          <th>Value</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                          <td><small>Pending...</small></td>
-                          <td><i className="fa fa-clock-o"></i> 11:20pm</td>
-                          <td>Samantha</td>
-                          <td className="text-navy"><i className="fa fa-level-up"></i> 24%</td>
-                        </tr>
-                        <tr>
-                          <td><span className="label label-warning">Canceled</span></td>
-                          <td><i className="fa fa-clock-o"></i> 10:40am</td>
-                          <td>Monica</td>
-                          <td className="text-navy"><i className="fa fa-level-up"></i> 66%</td>
-                        </tr>
-                        <tr>
-                          <td><small>Pending...</small></td>
-                          <td><i className="fa fa-clock-o"></i> 01:30pm</td>
-                          <td>John</td>
-                          <td className="text-navy"><i className="fa fa-level-up"></i> 54%</td>
-                        </tr>
-                        <tr>
-                          <td><small>Pending...</small></td>
-                          <td><i className="fa fa-clock-o"></i> 02:20pm</td>
-                          <td>Agnes</td>
-                          <td className="text-navy"><i className="fa fa-level-up"></i> 12%</td>
-                        </tr>
-                        <tr>
-                          <td><small>Pending...</small></td>
-                          <td><i className="fa fa-clock-o"></i> 09:40pm</td>
-                          <td>Janet</td>
-                          <td className="text-navy"><i className="fa fa-level-up"></i> 22%</td>
-                        </tr>
-                        <tr>
-                          <td><span className="label label-primary">Completed</span></td>
-                          <td><i className="fa fa-clock-o"></i> 04:10am</td>
-                          <td>Amelia</td>
-                          <td className="text-navy"><i className="fa fa-level-up"></i> 66%</td>
-                        </tr>
-                        <tr>
-                          <td><small>Pending...</small></td>
-                          <td><i className="fa fa-clock-o"></i> 12:08am</td>
-                          <td>Damian</td>
-                          <td className="text-navy"><i className="fa fa-level-up"></i> 23%</td>
-                        </tr>
-                        </tbody>
-                      </table>
+                      <DailyTrendMinutelyChart/>
                     </div>
                   </div>
                 </div>
