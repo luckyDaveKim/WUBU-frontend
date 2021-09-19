@@ -4,6 +4,7 @@ import React from "react";
 import VolumeStockChart from "../../atoms/VolumeStockChart/VolumeStockChart";
 import CompanyDualList from "../../atoms/CompanyDualList/CompanyDualList";
 import DailyTrendMinutelyChart from "../../atoms/DailyTrendMinutelyChart/DailyTrendMinutelyChart";
+import ExchangeRateChart from "../../atoms/ExchangeRateChart/ExchangeRateChart";
 
 function Dashboard() {
   return (
@@ -683,7 +684,7 @@ function Dashboard() {
                 <div className="col-lg-6">
                   <div className="ibox ">
                     <div className="ibox-title">
-                      <h5>User project list</h5>
+                      <h5>주식 1일 추이</h5>
                       <div className="ibox-tools">
                         <a className="collapse-link" href="#/">
                           <i className="fa fa-chevron-up"></i>
@@ -698,10 +699,11 @@ function Dashboard() {
                     </div>
                   </div>
                 </div>
+
                 <div className="col-lg-6">
                   <div className="ibox ">
                     <div className="ibox-title">
-                      <h5>Small todo list</h5>
+                      <h5>환율 1일</h5>
                       <div className="ibox-tools">
                         <a className="collapse-link" href="#/">
                           <i className="fa fa-chevron-up"></i>
@@ -711,44 +713,13 @@ function Dashboard() {
                         </a>
                       </div>
                     </div>
-                    <div className="ibox-content">
-                      <ul className="todo-list m-t small-list">
-                        <li>
-                          <a href="#/" className="check-link"><i className="fa fa-check-square"></i> </a>
-                          <span className="m-l-xs todo-completed">Buy a milk</span>
-
-                        </li>
-                        <li>
-                          <a href="#/" className="check-link"><i className="fa fa-square-o"></i> </a>
-                          <span className="m-l-xs">Go to shop and find some products.</span>
-
-                        </li>
-                        <li>
-                          <a href="#/" className="check-link"><i className="fa fa-square-o"></i> </a>
-                          <span className="m-l-xs">Send documents to Mike</span>
-                          <small className="label label-primary"><i className="fa fa-clock-o"></i> 1 mins</small>
-                        </li>
-                        <li>
-                          <a href="#/" className="check-link"><i className="fa fa-square-o"></i> </a>
-                          <span className="m-l-xs">Go to the doctor dr Smith</span>
-                        </li>
-                        <li>
-                          <a href="#/" className="check-link"><i className="fa fa-check-square"></i> </a>
-                          <span className="m-l-xs todo-completed">Plan vacation</span>
-                        </li>
-                        <li>
-                          <a href="#/" className="check-link"><i className="fa fa-square-o"></i> </a>
-                          <span className="m-l-xs">Create new stuff</span>
-                        </li>
-                        <li>
-                          <a href="#/" className="check-link"><i className="fa fa-square-o"></i> </a>
-                          <span className="m-l-xs">Call to Anna for dinner</span>
-                        </li>
-                      </ul>
+                    <div className="ibox-content table-responsive">
+                      <ExchangeRateChart/>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div className="row">
                 <div className="col-lg-12">
                   <div className="ibox ">
