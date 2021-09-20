@@ -5,6 +5,7 @@ import VolumeStockChart from "../../atoms/VolumeStockChart/VolumeStockChart";
 import CompanyDualList from "../../atoms/CompanyDualList/CompanyDualList";
 import DailyTrendMinutelyChart from "../../atoms/DailyTrendMinutelyChart/DailyTrendMinutelyChart";
 import ExchangeRateChart from "../../atoms/ExchangeRateChart/ExchangeRateChart";
+import DailyExchangeRateChart from "../../atoms/DailyExchangeRateChart/DailyExchangeRateChart";
 
 function Dashboard() {
   return (
@@ -591,10 +592,12 @@ function Dashboard() {
 
 
           <div className="row">
+
+
             <div className="col-lg-4">
               <div className="ibox ">
                 <div className="ibox-title">
-                  <h5>Messages</h5>
+                  <h5>주식 1일 추이</h5>
                   <div className="ibox-tools">
                     <a className="collapse-link" href="#/">
                       <i className="fa fa-chevron-up"></i>
@@ -604,208 +607,134 @@ function Dashboard() {
                     </a>
                   </div>
                 </div>
-                <div className="ibox-content ibox-heading">
-                  <h3><i className="fa fa-envelope-o"></i> New messages</h3>
-                  <small><i className="fa fa-tim"></i> You have 22 new messages and 16 waiting in draft folder.</small>
+                <div className="ibox-content table-responsive">
+                  <DailyTrendMinutelyChart/>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4">
+              <div className="ibox ">
+                <div className="ibox-title">
+                  <h5>환율 1일</h5>
+                  <div className="ibox-tools">
+                    <a className="collapse-link" href="#/">
+                      <i className="fa fa-chevron-up"></i>
+                    </a>
+                    <a className="close-link" href="#/">
+                      <i className="fa fa-times"></i>
+                    </a>
+                  </div>
+                </div>
+                <div className="ibox-content table-responsive">
+                  <ExchangeRateChart/>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4">
+              <div className="ibox ">
+                <div className="ibox-title">
+                  <h5>환율 100일</h5>
+                  <div className="ibox-tools">
+                    <a className="collapse-link" href="#/">
+                      <i className="fa fa-chevron-up"></i>
+                    </a>
+                    <a className="close-link" href="#/">
+                      <i className="fa fa-times"></i>
+                    </a>
+                  </div>
+                </div>
+                <div className="ibox-content table-responsive">
+                  <DailyExchangeRateChart/>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="ibox ">
+                <div className="ibox-title">
+                  <h5>Transactions worldwide</h5>
+                  <div className="ibox-tools">
+                    <a className="collapse-link" href="#/">
+                      <i className="fa fa-chevron-up"></i>
+                    </a>
+                    <a className="close-link" href="#/">
+                      <i className="fa fa-times"></i>
+                    </a>
+                  </div>
                 </div>
                 <div className="ibox-content">
-                  <div className="feed-activity-list">
 
-                    <div className="feed-element">
-                      <div>
-                        <small className="float-right text-navy">1m ago</small>
-                        <strong>Monica Smith</strong>
-                        <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</div>
-                        <small className="text-muted">Today 5:60 pm - 12.06.2014</small>
-                      </div>
-                    </div>
+                  <div className="row">
+                    <div className="col-lg-6">
+                      <table className="table table-hover margin bottom">
+                        <thead>
+                        <tr>
+                          <th style={{'width': '1%'}} className="text-center">No.</th>
+                          <th>Transaction</th>
+                          <th className="text-center">Date</th>
+                          <th className="text-center">Amount</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td className="text-center">1</td>
+                          <td> Security doors
+                          </td>
+                          <td className="text-center small">16 Jun 2014</td>
+                          <td className="text-center"><span className="label label-primary">$483.00</span></td>
 
-                    <div className="feed-element">
-                      <div>
-                        <small className="float-right">2m ago</small>
-                        <strong>Jogn Angel</strong>
-                        <div>There are many variations of passages of Lorem Ipsum available</div>
-                        <small className="text-muted">Today 2:23 pm - 11.06.2014</small>
-                      </div>
-                    </div>
+                        </tr>
+                        <tr>
+                          <td className="text-center">2</td>
+                          <td> Wardrobes
+                          </td>
+                          <td className="text-center small">10 Jun 2014</td>
+                          <td className="text-center"><span className="label label-primary">$327.00</span></td>
 
-                    <div className="feed-element">
-                      <div>
-                        <small className="float-right">5m ago</small>
-                        <strong>Jesica Ocean</strong>
-                        <div>Contrary to popular belief, Lorem Ipsum</div>
-                        <small className="text-muted">Today 1:00 pm - 08.06.2014</small>
-                      </div>
-                    </div>
+                        </tr>
+                        <tr>
+                          <td className="text-center">3</td>
+                          <td> Set of tools
+                          </td>
+                          <td className="text-center small">12 Jun 2014</td>
+                          <td className="text-center"><span className="label label-warning">$125.00</span></td>
 
-                    <div className="feed-element">
-                      <div>
-                        <small className="float-right">5m ago</small>
-                        <strong>Monica Jackson</strong>
-                        <div>The generated Lorem Ipsum is therefore</div>
-                        <small className="text-muted">Yesterday 8:48 pm - 10.06.2014</small>
-                      </div>
+                        </tr>
+                        <tr>
+                          <td className="text-center">4</td>
+                          <td> Panoramic pictures</td>
+                          <td className="text-center small">22 Jun 2013</td>
+                          <td className="text-center"><span className="label label-primary">$344.00</span></td>
+                        </tr>
+                        <tr>
+                          <td className="text-center">5</td>
+                          <td>Phones</td>
+                          <td className="text-center small">24 Jun 2013</td>
+                          <td className="text-center"><span className="label label-primary">$235.00</span></td>
+                        </tr>
+                        <tr>
+                          <td className="text-center">6</td>
+                          <td>Monitors</td>
+                          <td className="text-center small">26 Jun 2013</td>
+                          <td className="text-center"><span className="label label-primary">$100.00</span></td>
+                        </tr>
+                        </tbody>
+                      </table>
                     </div>
-
-
-                    <div className="feed-element">
-                      <div>
-                        <small className="float-right">5m ago</small>
-                        <strong>Anna Legend</strong>
-                        <div>All the Lorem Ipsum generators on the Internet tend to repeat</div>
-                        <small className="text-muted">Yesterday 8:48 pm - 10.06.2014</small>
-                      </div>
+                    <div className="col-lg-6">
+                      <div id="world-map" style={{'height': '300px'}}></div>
                     </div>
-                    <div className="feed-element">
-                      <div>
-                        <small className="float-right">5m ago</small>
-                        <strong>Damian Nowak</strong>
-                        <div>The standard chunk of Lorem Ipsum used</div>
-                        <small className="text-muted">Yesterday 8:48 pm - 10.06.2014</small>
-                      </div>
-                    </div>
-                    <div className="feed-element">
-                      <div>
-                        <small className="float-right">5m ago</small>
-                        <strong>Gary Smith</strong>
-                        <div>200 Latin words, combined with a handful</div>
-                        <small className="text-muted">Yesterday 8:48 pm - 10.06.2014</small>
-                      </div>
-                    </div>
-
                   </div>
                 </div>
               </div>
             </div>
-
-            <div className="col-lg-8">
-
-              <div className="row">
-                <div className="col-lg-6">
-                  <div className="ibox ">
-                    <div className="ibox-title">
-                      <h5>주식 1일 추이</h5>
-                      <div className="ibox-tools">
-                        <a className="collapse-link" href="#/">
-                          <i className="fa fa-chevron-up"></i>
-                        </a>
-                        <a className="close-link" href="#/">
-                          <i className="fa fa-times"></i>
-                        </a>
-                      </div>
-                    </div>
-                    <div className="ibox-content table-responsive">
-                      <DailyTrendMinutelyChart/>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-lg-6">
-                  <div className="ibox ">
-                    <div className="ibox-title">
-                      <h5>환율 1일</h5>
-                      <div className="ibox-tools">
-                        <a className="collapse-link" href="#/">
-                          <i className="fa fa-chevron-up"></i>
-                        </a>
-                        <a className="close-link" href="#/">
-                          <i className="fa fa-times"></i>
-                        </a>
-                      </div>
-                    </div>
-                    <div className="ibox-content table-responsive">
-                      <ExchangeRateChart/>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="ibox ">
-                    <div className="ibox-title">
-                      <h5>Transactions worldwide</h5>
-                      <div className="ibox-tools">
-                        <a className="collapse-link" href="#/">
-                          <i className="fa fa-chevron-up"></i>
-                        </a>
-                        <a className="close-link" href="#/">
-                          <i className="fa fa-times"></i>
-                        </a>
-                      </div>
-                    </div>
-                    <div className="ibox-content">
-
-                      <div className="row">
-                        <div className="col-lg-6">
-                          <table className="table table-hover margin bottom">
-                            <thead>
-                            <tr>
-                              <th style={{'width': '1%'}} className="text-center">No.</th>
-                              <th>Transaction</th>
-                              <th className="text-center">Date</th>
-                              <th className="text-center">Amount</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                              <td className="text-center">1</td>
-                              <td> Security doors
-                              </td>
-                              <td className="text-center small">16 Jun 2014</td>
-                              <td className="text-center"><span className="label label-primary">$483.00</span></td>
-
-                            </tr>
-                            <tr>
-                              <td className="text-center">2</td>
-                              <td> Wardrobes
-                              </td>
-                              <td className="text-center small">10 Jun 2014</td>
-                              <td className="text-center"><span className="label label-primary">$327.00</span></td>
-
-                            </tr>
-                            <tr>
-                              <td className="text-center">3</td>
-                              <td> Set of tools
-                              </td>
-                              <td className="text-center small">12 Jun 2014</td>
-                              <td className="text-center"><span className="label label-warning">$125.00</span></td>
-
-                            </tr>
-                            <tr>
-                              <td className="text-center">4</td>
-                              <td> Panoramic pictures</td>
-                              <td className="text-center small">22 Jun 2013</td>
-                              <td className="text-center"><span className="label label-primary">$344.00</span></td>
-                            </tr>
-                            <tr>
-                              <td className="text-center">5</td>
-                              <td>Phones</td>
-                              <td className="text-center small">24 Jun 2013</td>
-                              <td className="text-center"><span className="label label-primary">$235.00</span></td>
-                            </tr>
-                            <tr>
-                              <td className="text-center">6</td>
-                              <td>Monitors</td>
-                              <td className="text-center small">26 Jun 2013</td>
-                              <td className="text-center"><span className="label label-primary">$100.00</span></td>
-                            </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        <div className="col-lg-6">
-                          <div id="world-map" style={{'height': '300px'}}></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-
           </div>
+
+
         </div>
         <div className="footer">
           <div className="float-right">
