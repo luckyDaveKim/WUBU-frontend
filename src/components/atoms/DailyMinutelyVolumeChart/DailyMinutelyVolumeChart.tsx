@@ -65,31 +65,16 @@ function DailyMinutelyVolumeChart() {
   useEffect(() => {
     if (!code) return
 
-    const getMon = axios.get<Response>(`http://localhost:8080/api/minutely/volume/companies/${code}`, {
-      params: {
-        'date': moment().subtract(6, 'days').format('YYYY-MM-DD')
-      }
-    });
-    const getTue = axios.get<Response>(`http://localhost:8080/api/minutely/volume/companies/${code}`, {
-      params: {
-        'date': moment().subtract(5, 'days').format('YYYY-MM-DD')
-      }
-    });
-    const getWed = axios.get<Response>(`http://localhost:8080/api/minutely/volume/companies/${code}`, {
-      params: {
-        'date': moment().subtract(4, 'days').format('YYYY-MM-DD')
-      }
-    });
-    const getThu = axios.get<Response>(`http://localhost:8080/api/minutely/volume/companies/${code}`, {
-      params: {
-        'date': moment().subtract(3, 'days').format('YYYY-MM-DD')
-      }
-    });
-    const getFri = axios.get<Response>(`http://localhost:8080/api/minutely/volume/companies/${code}`, {
-      params: {
-        'date': moment().subtract(2, 'days').format('YYYY-MM-DD')
-      }
-    });
+    const monDate = moment().subtract(6, 'days').format('YYYY-MM-DD')
+    const getMon = axios.get<Response>(`http://localhost:8080/api/minutely/volume/${monDate}/companies/${code}`);
+    const tueDate = moment().subtract(5, 'days').format('YYYY-MM-DD')
+    const getTue = axios.get<Response>(`http://localhost:8080/api/minutely/volume/${tueDate}/companies/${code}`);
+    const wedDate = moment().subtract(4, 'days').format('YYYY-MM-DD')
+    const getWed = axios.get<Response>(`http://localhost:8080/api/minutely/volume/${wedDate}/companies/${code}`);
+    const thuDate = moment().subtract(3, 'days').format('YYYY-MM-DD')
+    const getThu = axios.get<Response>(`http://localhost:8080/api/minutely/volume/${thuDate}/companies/${code}`);
+    const friDate = moment().subtract(2, 'days').format('YYYY-MM-DD')
+    const getFri = axios.get<Response>(`http://localhost:8080/api/minutely/volume/${friDate}/companies/${code}`);
 
     axios.all([getMon, getTue, getWed, getThu, getFri])
       .then(axios.spread(({data: monPriceRes}, {data: tuePriceRes}, {data: wedPriceRes}, {data: thuPriceRes}, {data: friPriceRes}) => {
