@@ -6,6 +6,7 @@ import CompanyDualList from "../../atoms/CompanyDualList/CompanyDualList";
 import DailyTrendMinutelyChart from "../../atoms/DailyTrendMinutelyChart/DailyTrendMinutelyChart";
 import ExchangeRateChart from "../../atoms/ExchangeRateChart/ExchangeRateChart";
 import DailyExchangeRateChart from "../../atoms/DailyExchangeRateChart/DailyExchangeRateChart";
+import DailyTrendMinutelyVolumeChart from "../../atoms/DailyTrendMinutelyVolumeChart/DailyTrendMinutelyVolumeChart";
 import DailyMinutelyVolumeChart from "../../atoms/DailyMinutelyVolumeChart/DailyMinutelyVolumeChart";
 
 function Dashboard() {
@@ -611,6 +612,26 @@ function Dashboard() {
                 </div>
               </div>
             </div>
+
+            <div className="col-lg-4">
+              <div className="ibox ">
+                <div className="ibox-title">
+                  <h5>거래량 1일 누적 추이</h5>
+                  <div className="ibox-tools">
+                    <a className="collapse-link" href="#/">
+                      <i className="fa fa-chevron-up"></i>
+                    </a>
+                    <a className="close-link" href="#/">
+                      <i className="fa fa-times"></i>
+                    </a>
+                  </div>
+                </div>
+                <div className="ibox-content table-responsive">
+                  <DailyTrendMinutelyVolumeChart/>
+                </div>
+              </div>
+            </div>
+
 
             <div className="col-lg-4">
               <div className="ibox ">
