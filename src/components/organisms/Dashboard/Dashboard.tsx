@@ -6,6 +6,7 @@ import CompanyDualList from "../../atoms/CompanyDualList/CompanyDualList";
 import DailyTrendMinutelyChart from "../../atoms/DailyTrendMinutelyChart/DailyTrendMinutelyChart";
 import ExchangeRateChart from "../../atoms/ExchangeRateChart/ExchangeRateChart";
 import DailyExchangeRateChart from "../../atoms/DailyExchangeRateChart/DailyExchangeRateChart";
+import DailyMinutelyVolumeChart from "../../atoms/DailyMinutelyVolumeChart/DailyMinutelyVolumeChart";
 
 function Dashboard() {
   return (
@@ -397,24 +398,9 @@ function Dashboard() {
               <div className="ibox ">
                 <div className="ibox-title">
                   <div className="ibox-tools">
-                    <span className="label label-success float-right">Monthly</span>
-                  </div>
-                  <h5>Income</h5>
-                </div>
-                <div className="ibox-content">
-                  <h1 className="no-margins">40 886,200</h1>
-                  <div className="stat-percent font-bold text-success">98% <i className="fa fa-bolt"></i></div>
-                  <small>Total income</small>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3">
-              <div className="ibox ">
-                <div className="ibox-title">
-                  <div className="ibox-tools">
                     <span className="label label-info float-right">Annual</span>
                   </div>
-                  <h5>Orders</h5>
+                  <h5>코스피</h5>
                 </div>
                 <div className="ibox-content">
                   <h1 className="no-margins">275,800</h1>
@@ -429,12 +415,27 @@ function Dashboard() {
                   <div className="ibox-tools">
                     <span className="label label-primary float-right">Today</span>
                   </div>
-                  <h5>visits</h5>
+                  <h5>코스닥</h5>
                 </div>
                 <div className="ibox-content">
                   <h1 className="no-margins">106,120</h1>
                   <div className="stat-percent font-bold text-navy">44% <i className="fa fa-level-up"></i></div>
                   <small>New visits</small>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <div className="ibox ">
+                <div className="ibox-title">
+                  <div className="ibox-tools">
+                    <span className="label label-success float-right">Monthly</span>
+                  </div>
+                  <h5>환율</h5>
+                </div>
+                <div className="ibox-content">
+                  <h1 className="no-margins">1,171.00</h1>
+                  <div className="stat-percent font-bold text-success">98% <i className="fa fa-bolt"></i></div>
+                  <small>Total income</small>
                 </div>
               </div>
             </div>
@@ -592,8 +593,6 @@ function Dashboard() {
 
 
           <div className="row">
-
-
             <div className="col-lg-4">
               <div className="ibox ">
                 <div className="ibox-title">
@@ -616,6 +615,27 @@ function Dashboard() {
             <div className="col-lg-4">
               <div className="ibox ">
                 <div className="ibox-title">
+                  <h5>거래량 1일 추이</h5>
+                  <div className="ibox-tools">
+                    <a className="collapse-link" href="#/">
+                      <i className="fa fa-chevron-up"></i>
+                    </a>
+                    <a className="close-link" href="#/">
+                      <i className="fa fa-times"></i>
+                    </a>
+                  </div>
+                </div>
+                <div className="ibox-content table-responsive">
+                  <DailyMinutelyVolumeChart/>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-lg-6">
+              <div className="ibox ">
+                <div className="ibox-title">
                   <h5>환율 1일</h5>
                   <div className="ibox-tools">
                     <a className="collapse-link" href="#/">
@@ -632,7 +652,7 @@ function Dashboard() {
               </div>
             </div>
 
-            <div className="col-lg-4">
+            <div className="col-lg-6">
               <div className="ibox ">
                 <div className="ibox-title">
                   <h5>환율 100일</h5>
@@ -648,6 +668,26 @@ function Dashboard() {
                 <div className="ibox-content table-responsive">
                   <DailyExchangeRateChart/>
                 </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div className="row">
+            <div className="ibox ">
+              <div className="ibox-title">
+                <h5>주식 1일 추이</h5>
+                <div className="ibox-tools">
+                  <a className="collapse-link" href="#/">
+                    <i className="fa fa-chevron-up"></i>
+                  </a>
+                  <a className="close-link" href="#/">
+                    <i className="fa fa-times"></i>
+                  </a>
+                </div>
+              </div>
+              <div className="ibox-content table-responsive">
+                <DailyTrendMinutelyChart/>
               </div>
             </div>
           </div>
