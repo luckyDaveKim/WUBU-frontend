@@ -39,7 +39,7 @@ function CompanyDualList() {
     const config = {
       params: {
         'page': 1,
-        'pageSize': 100
+        'pageSize': 9999
       }
     };
     const getPrice = axios.get<Response>(`http://localhost:8080/api/companies`, config);
