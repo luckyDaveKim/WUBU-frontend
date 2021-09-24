@@ -1,6 +1,6 @@
 import CompanySelect from "../../atoms/CompanySelect/CompanySelect";
 import React from "react";
-import VolumeStockChart from "../../atoms/VolumeStockChart/VolumeStockChart";
+import DailyVolumeStockChart from "../../molecules/DailyVolumeStockChart/DailyVolumeStockChart";
 import CompanyDualList from "../../atoms/CompanyDualList/CompanyDualList";
 import DailyTrendMinutelyChart from "../../atoms/DailyTrendMinutelyChart/DailyTrendMinutelyChart";
 import ExchangeRateChart from "../../atoms/ExchangeRateChart/ExchangeRateChart";
@@ -8,6 +8,7 @@ import DailyExchangeRateChart from "../../atoms/DailyExchangeRateChart/DailyExch
 import DailyTrendMinutelyVolumeChart from "../../atoms/DailyTrendMinutelyVolumeChart/DailyTrendMinutelyVolumeChart";
 import DailyMinutelyVolumeChart from "../../atoms/DailyMinutelyVolumeChart/DailyMinutelyVolumeChart";
 import TodayExchangeRateStatus from "../../molecules/TodayExchangeRateStatus/TodayExchangeRateStatus";
+import MinutelyVolumeStockChart from "../../molecules/MinutelyVolumeStockChart/MinutelyVolumeStockChart";
 
 function Dashboard() {
   return (
@@ -479,55 +480,45 @@ function Dashboard() {
             <div className="col-lg-12">
               <div className="ibox ">
                 <div className="ibox-title">
-                  <h5>Orders</h5>
+                  <h5>일별 데이터</h5>
                   <div className="ibox-tools">
                     <div className="btn-group">
                       <button type="button" className="btn btn-xs btn-white active">Today</button>
-                      <button type="button" className="btn btn-xs btn-white">Monthly</button>
-                      <button type="button" className="btn btn-xs btn-white">Annual</button>
+                      <button type="button" className="btn btn-xs btn-white">Minutely</button>
+                      <button type="button" className="btn btn-xs btn-white">Daily</button>
                     </div>
                   </div>
                 </div>
                 <div className="ibox-content">
                   <div className="row">
-                    <div className="col-lg-9">
-                      <VolumeStockChart/>
-                    </div>
-                    <div className="col-lg-3">
-                      <ul className="stat-list">
-                        <li>
-                          <h2 className="no-margins">2,346</h2>
-                          <small>Total orders in period</small>
-                          <div className="stat-percent">48% <i className="fa fa-level-up text-navy"></i></div>
-                          <div className="progress progress-mini">
-                            <div style={{'width': '48%'}} className="progress-bar"></div>
-                          </div>
-                        </li>
-                        <li>
-                          <h2 className="no-margins ">4,422</h2>
-                          <small>Orders in last month</small>
-                          <div className="stat-percent">60% <i className="fa fa-level-down text-navy"></i></div>
-                          <div className="progress progress-mini">
-                            <div style={{'width': '60%'}} className="progress-bar"></div>
-                          </div>
-                        </li>
-                        <li>
-                          <h2 className="no-margins ">9,180</h2>
-                          <small>Monthly income from orders</small>
-                          <div className="stat-percent">22% <i className="fa fa-bolt text-navy"></i></div>
-                          <div className="progress progress-mini">
-                            <div style={{'width': '22%'}} className="progress-bar"></div>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
+                    <DailyVolumeStockChart/>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
 
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="ibox ">
+                <div className="ibox-title">
+                  <h5>분별 데이터</h5>
+                  <div className="ibox-tools">
+                    <div className="btn-group">
+                      <button type="button" className="btn btn-xs btn-white active">Today</button>
+                      <button type="button" className="btn btn-xs btn-white">Minutely</button>
+                      <button type="button" className="btn btn-xs btn-white">Daily</button>
+                    </div>
+                  </div>
+                </div>
+                <div className="ibox-content">
+                  <div className="row">
+                    <MinutelyVolumeStockChart/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <div className="row">
             <div className="col-lg-4">

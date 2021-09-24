@@ -19,7 +19,7 @@ type Response = {
   data: Data[]
 }
 
-function VolumeStockChart() {
+function DailyVolumeStockChart() {
   const code = useSelector((state: RootState) => state.stock.code);
   const [priceData, setPriceData] = useState<Data[]>([]);
   const [volumeData, setVolumeData] = useState<Data[]>([]);
@@ -134,4 +134,4 @@ function VolumeStockChart() {
   );
 }
 
-export default VolumeStockChart;
+export default DailyVolumeStockChart;
