@@ -39,7 +39,7 @@ function ColorText({
 
   return (
     <div className={`stat-percent font-bold ${labelColor}`}>
-      <FontAwesomeIcon icon={faCaretUp} size={"lg"}/> {`${comparisonRate} (${sign}${percentage}%)`}
+      <FontAwesomeIcon icon={icon} size={"lg"}/> {`${comparisonRate} (${sign}${percentage}%)`}
     </div>
   );
 }

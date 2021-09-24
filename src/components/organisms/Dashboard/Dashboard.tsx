@@ -1012,7 +1012,7 @@ function Dashboard() {
                     </span>
                 <div className="switch">
                   <div className="onoffswitch">
-                    <input type="checkbox" name="collapsemenu" checked className="onoffswitch-checkbox" id="example2"/>
+                    <input type="checkbox" name="collapsemenu" defaultChecked={true} className="onoffswitch-checkbox" id="example2"/>
                     <label className="onoffswitch-label" htmlFor="example2">
                       <span className="onoffswitch-inner"></span>
                       <span className="onoffswitch-switch"></span>
@@ -1054,7 +1054,7 @@ function Dashboard() {
                     </span>
                 <div className="switch">
                   <div className="onoffswitch">
-                    <input type="checkbox" checked name="collapsemenu" className="onoffswitch-checkbox" id="example5"/>
+                    <input type="checkbox" defaultChecked={true} name="collapsemenu" className="onoffswitch-checkbox" id="example5"/>
                     <label className="onoffswitch-label" htmlFor="example5">
                       <span className="onoffswitch-inner"></span>
                       <span className="onoffswitch-switch"></span>
@@ -1068,7 +1068,7 @@ function Dashboard() {
                     </span>
                 <div className="switch">
                   <div className="onoffswitch">
-                    <input type="checkbox" checked name="collapsemenu" className="onoffswitch-checkbox" id="example6"/>
+                    <input type="checkbox" defaultChecked={true} name="collapsemenu" className="onoffswitch-checkbox" id="example6"/>
                     <label className="onoffswitch-label" htmlFor="example6">
                       <span className="onoffswitch-inner"></span>
                       <span className="onoffswitch-switch"></span>

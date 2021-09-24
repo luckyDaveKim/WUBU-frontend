@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import axios from "axios";
@@ -46,21 +46,21 @@ function DailyTrendMinutelyVolumeChart() {
       })
   }
 
-  const loadMonPriceRes = (monPriceRes: Response) => {
+  const loadMonPriceRes = useCallback((monPriceRes: Response) => {
     setMonPriceData(convertData(monPriceRes))
-  }
-  const loadTuePriceRes = (tuePriceRes: Response) => {
+  }, [])
+  const loadTuePriceRes = useCallback((tuePriceRes: Response) => {
     setTuePriceData(convertData(tuePriceRes))
-  }
-  const loadWedPriceRes = (wedPriceRes: Response) => {
+  }, [])
+  const loadWedPriceRes = useCallback((wedPriceRes: Response) => {
     setWedPriceData(convertData(wedPriceRes))
-  }
-  const loadThuPriceRes = (thuPriceRes: Response) => {
+  }, [])
+  const loadThuPriceRes = useCallback((thuPriceRes: Response) => {
     setThuPriceData(convertData(thuPriceRes))
-  }
-  const loadFriPriceRes = (friPriceRes: Response) => {
+  }, [])
+  const loadFriPriceRes = useCallback((friPriceRes: Response) => {
     setFriPriceData(convertData(friPriceRes))
-  }
+  }, [])
 
   useEffect(() => {
     if (!code) return
@@ -100,7 +100,7 @@ function DailyTrendMinutelyVolumeChart() {
         loadFriPriceRes(friPriceRes)
       }))
       .catch(err => console.error(err))
-  }, [code])
+  }, [code, loadMonPriceRes, loadTuePriceRes, loadWedPriceRes, loadThuPriceRes, loadFriPriceRes])
 
   const options = {
     chart: {
