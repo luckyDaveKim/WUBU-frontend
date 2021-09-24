@@ -8,6 +8,7 @@ import ExchangeRateChart from "../../atoms/ExchangeRateChart/ExchangeRateChart";
 import DailyExchangeRateChart from "../../atoms/DailyExchangeRateChart/DailyExchangeRateChart";
 import DailyTrendMinutelyVolumeChart from "../../atoms/DailyTrendMinutelyVolumeChart/DailyTrendMinutelyVolumeChart";
 import DailyMinutelyVolumeChart from "../../atoms/DailyMinutelyVolumeChart/DailyMinutelyVolumeChart";
+import TodayExchangeRateStatus from "../../molecules/TodayExchangeRateStatus/TodayExchangeRateStatus";
 
 function Dashboard() {
   return (
@@ -425,21 +426,11 @@ function Dashboard() {
                 </div>
               </div>
             </div>
+
             <div className="col-lg-3">
-              <div className="ibox ">
-                <div className="ibox-title">
-                  <div className="ibox-tools">
-                    <span className="label label-success float-right">Monthly</span>
-                  </div>
-                  <h5>환율</h5>
-                </div>
-                <div className="ibox-content">
-                  <h1 className="no-margins">1,171.00</h1>
-                  <div className="stat-percent font-bold text-success">98% <i className="fa fa-bolt"></i></div>
-                  <small>Total income</small>
-                </div>
-              </div>
+              <TodayExchangeRateStatus/>
             </div>
+
             <div className="col-lg-3">
               <div className="ibox ">
                 <div className="ibox-title">

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import axios from "axios";
+import moment from "moment";
 
 type Data = {
   x: number;
@@ -25,7 +26,7 @@ function ExchangeRateChart() {
   }
 
   useEffect(() => {
-    const date = '2021-09-17'
+    const date = moment().format('YYYY-MM-DD')
 
     axios.get<Response>(`http://localhost:8080/api/minutely/exchange-rate/${date}`)
       .then(({data: exchangeRateRes}) => loadExchangeRateRes(exchangeRateRes))
