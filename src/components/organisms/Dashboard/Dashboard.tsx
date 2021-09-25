@@ -395,6 +395,18 @@ function Dashboard() {
           </nav>
         </div>
         <div className="wrapper wrapper-content">
+
+          <div className="ibox-content m-b-sm border-bottom">
+            <div className="row">
+              <div className="col-sm-4">
+                <div className="form-group">
+                  <label className="col-form-label" htmlFor="product_name">회사 선택</label>
+                  <CompanySelect />
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="row">
             <div className="col-lg-3">
               <div className="ibox ">
@@ -443,34 +455,6 @@ function Dashboard() {
                   <h1 className="no-margins">80,600</h1>
                   <div className="stat-percent font-bold text-danger">38% <i className="fa fa-level-down"></i></div>
                   <small>In first month</small>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="ibox">
-                <div className="ibox-title">
-                  <h5>회사 선택 <small>주식</small></h5>
-                </div>
-                <div className="ibox-content">
-                  <div className="row">
-                    <div className="col-md-4">
-                      <p>
-                        회사
-                      </p>
-                      <CompanySelect/>
-                    </div>
-
-                    <div className="col-md-8">
-                      <p>
-                        회사
-                      </p>
-                      <CompanyDualList/>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -636,6 +620,26 @@ function Dashboard() {
               </div>
               <div className="ibox-content table-responsive">
                 <DailyTrendMinutelyChart/>
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="ibox">
+                <div className="ibox-title">
+                  <h5>회사 선택 <small>주식</small></h5>
+                </div>
+                <div className="ibox-content">
+                  <div className="row">
+                    <div className="col-md-8">
+                      <p>
+                        회사
+                      </p>
+                      <CompanyDualList/>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

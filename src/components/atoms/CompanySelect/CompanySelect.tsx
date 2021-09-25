@@ -17,7 +17,7 @@ type CompanyType = {
 
 type Response = CompanyType[]
 
-type Props = {
+type MenuListProps = {
   options: any;
   children: any;
   maxHeight: any;
@@ -29,18 +29,20 @@ function MenuList({
                     children,
                     maxHeight,
                     getValue
-                  }: Props) {
-  const height = 35
+                  }: MenuListProps) {
+  const itemHeight = 35
+  const height = Math.min(options.length * itemHeight, maxHeight)
   const [value] = getValue();
-  const initialOffset = options.indexOf(value) * height;
+  const initialOffset = options.indexOf(value) * itemHeight;
 
   return (
     <List
-      height={maxHeight}
+      height={height}
       width={'100%'}
       itemCount={children.length}
-      itemSize={height}
-      initialScrollOffset={initialOffset}>
+      itemSize={itemHeight}
+      initialScrollOffset={initialOffset}
+    >
       {({index, style}) => <div style={style}>{children[index]}</div>}
     </List>
   );
