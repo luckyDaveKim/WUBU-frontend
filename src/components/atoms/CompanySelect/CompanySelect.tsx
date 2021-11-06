@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Select from "react-select";
+import Select, { OnChangeValue } from "react-select";
 import { FixedSizeList as List } from "react-window";
 import axios from "axios";
-import { ValueType } from "react-select/src/types";
 import useControllerActions from "../../../hooks/controller/userControllerAction";
 
 type OptionType = {
@@ -66,7 +65,7 @@ function CompanySelect() {
       .catch(err => console.error(err))
   }, [])
 
-  const onChange = function (value: ValueType<OptionType, false>) {
+  const onChange = function (value: OnChangeValue<OptionType, false>) {
     controllerActions.setCode(value?.value)
   }
 
