@@ -5,14 +5,14 @@ import RangeDatePicker from '../components/RangeDatePicker';
 import CompanySelector from '../components/CompanySelector';
 
 const getDailyPriceUri = (companyCode, startDate, endDate) => {
-    return `http://localhost:8000/api/companies/${companyCode}/price/daily?startDate=${startDate}&endDate=${endDate}`;
+    return `http://localhost:8000/api/companies/${companyCode}/price/daily?startDate=${startDate}&endDate=${endDate}&strategyNames=bollingerBand`;
 };
 export default function DailyPricePage() {
-    const [selectedRangeDate, setSelectedRnageDate] = useState({});
+    const [selectedRangeDate, setSelectedRangeDate] = useState({});
     const [selectedCompany, setSelectedCompany] = useState('');
 
     const onChangeRangeDate = ({ startDate, endDate }) => {
-        setSelectedRnageDate({ startDate, endDate });
+        setSelectedRangeDate({ startDate, endDate });
     };
 
     const onChangeCompany = ({ target }) => {

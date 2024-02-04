@@ -2,15 +2,12 @@ import ReactApexChart from "react-apexcharts";
 import dayjs from 'dayjs';
 
 
-export default function CandlestickChart({ data }) {
-    var options = {
-        series: [{
-            name: 'candle',
-            data
-        }],
+export default function CandlestickChart({ series }) {
+    const options = {
+        series,
         chart: {
             height: 350,
-            type: 'candlestick',
+            type: 'line',
         },
         title: {
             text: 'CandleStick Chart - Category X-axis',
@@ -35,6 +32,7 @@ export default function CandlestickChart({ data }) {
                 }
             ]
         },
+        // FIXME : tooltip 설정 필요, OHLC 값만 표현되도록....
         tooltip: {
             enabled: true,
         },
