@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const COMPANY_URI = 'http://localhost:8000/api/companies';
 
-const CompanySelector = ({ onChangeCompany }) => {
+export default function CompanySelector({ onChangeCompany }) {
     const [companies, setCompanies] = useState([]);
 
     useEffect(() => {
@@ -17,15 +17,13 @@ const CompanySelector = ({ onChangeCompany }) => {
     }, []);
 
     return (
-        <>
+        <div>
             <select onChange={onChangeCompany}>
                 <option key={'company-option-none'} value={''}>회사를 선택해주세요.</option>
                 {companies.map(({ code, company: companyName }) => {
                     return (<option key={`company-option-${code}`} value={code}>{companyName}</option>);
                 })}
             </select>
-        </>
+        </div>
     );
 };
-
-export default CompanySelector;

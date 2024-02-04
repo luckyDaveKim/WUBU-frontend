@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 
 const DATE_FORMAT = 'YYYY-MM-DD';
 const DEFAULT_MONTH_RANGE = 3;
-const RangeDatePicker = ({ onChangeRangeDate }) => {
+export default function RangeDatePicker({ onChangeRangeDate }) {
     const today = dayjs();
     const lastMonthDay = today.subtract(DEFAULT_MONTH_RANGE, 'month');
 
@@ -37,5 +37,3 @@ const RangeDatePicker = ({ onChangeRangeDate }) => {
         </div>
     );
 };
-
-export default RangeDatePicker;

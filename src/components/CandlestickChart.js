@@ -2,7 +2,7 @@ import ReactApexChart from "react-apexcharts";
 import dayjs from 'dayjs';
 
 
-const CandlestickChart = ({ data }) => {
+export default function CandlestickChart({ data }) {
     var options = {
         series: [{
             name: 'candle',
@@ -39,7 +39,7 @@ const CandlestickChart = ({ data }) => {
             enabled: true,
         },
         xaxis: {
-            type: 'category',
+            type: 'date',
             labels: {
                 formatter: function (val) {
                     return dayjs(val).format('YYYY-MM-DD HH:mm');
@@ -61,5 +61,3 @@ const CandlestickChart = ({ data }) => {
         />
     );
 };
-
-export default CandlestickChart;

@@ -2,7 +2,7 @@ import CandlestickChart from './CandlestickChart';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const CandlestickDailyPriceChart = ({ uri }) => {
+export default function CandlestickDailyPriceChart({ uri }) {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -24,5 +24,3 @@ const CandlestickDailyPriceChart = ({ uri }) => {
         <CandlestickChart data={data} />
     );
 };
-
-export default CandlestickDailyPriceChart;
