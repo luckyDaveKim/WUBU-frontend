@@ -1,12 +1,25 @@
 import './App.css';
 import CandlestickDailyPriceChart from './page/CandlestickDailyPriceChart';
+import CompanySelector from './components/CompanySelector';
+import { useState } from 'react';
+
+const getDailyPriceUri = (companyCode) => {
+    return `http://localhost:8000/api/companies/${companyCode}/price/daily`;
+};
 
 function App() {
-    const dailyPriceUri = 'http://localhost:8000/api/companies/000020/price/daily';
+    const [selectedCompany, setSelectedCompany] = useState('');
+
+    const onChangeCompany = ({ target }) => {
+        setSelectedCompany(target.value);
+    };
 
     return (
         <div className="App">
-            <CandlestickDailyPriceChart uri={dailyPriceUri} />
+            <CompanySelector onChangeCompany={onChangeCompany} />
+            {!!selectedCompany && (
+                <CandlestickDailyPriceChart uri={getDailyPriceUri(selectedCompany)} />
+            )}
         </div>
     );
 }
