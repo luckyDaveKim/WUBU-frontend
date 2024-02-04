@@ -42,7 +42,7 @@ const CandlestickChart = ({ data }) => {
             type: 'category',
             labels: {
                 formatter: function (val) {
-                    return dayjs(val).format('MMM DD HH:mm');
+                    return dayjs(val).format('YYYY-MM-DD HH:mm');
                 }
             }
         },
