@@ -34,7 +34,9 @@ const Chart = () => {
                     stroke: (d) => Math.sign(d.Close - d.Open),
                     strokeWidth: 4,
                     strokeLinecap: "round"
-                })
+                }),
+                Plot.crosshairX(data, { x: "Date", y: "Close" }),
+                Plot.tip(data, Plot.pointerX({x: "Date", y: "Close"}))
             ]
         });
         containerRef.current.append(plot);
