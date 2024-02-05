@@ -8,10 +8,10 @@ export default function CandlestickDailyPriceChart({ uri }) {
     useEffect(() => {
         axios.get(uri)
             .then(res => {
-                const candleData = res.data.map(eachData => {
+                const candleData = res.data.map(({ date_timestamp, price }) => {
                     return {
-                        x: new Date(eachData.date_timestamp),
-                        y: eachData.price
+                        x: new Date(date_timestamp),
+                        y: price
                     };
                 });
                 const candleSeries = {
@@ -20,10 +20,10 @@ export default function CandlestickDailyPriceChart({ uri }) {
                     data: candleData
                 };
 
-                const ma20Data = res.data.map(eachData => {
+                const ma20Data = res.data.map(({ date_timestamp, ma20 }) => {
                     return {
-                        x: new Date(eachData.date_timestamp),
-                        y: eachData.ma20
+                        x: new Date(date_timestamp),
+                        y: ma20
                     };
                 });
                 const ma20Series = {
@@ -32,31 +32,19 @@ export default function CandlestickDailyPriceChart({ uri }) {
                     data: ma20Data
                 };
 
-                const bollingerBandUpperData = res.data.map(eachData => {
+                const bollingerBandData = res.data.map(({ date_timestamp, bollingerBand }) => {
                     return {
-                        x: new Date(eachData.date_timestamp),
-                        y: eachData.bollingerBandUpper
+                        x: new Date(date_timestamp),
+                        y: bollingerBand.map(val => val === null ? undefined : val)
                     };
                 });
-                const bollingerBandUpperSeries = {
-                    name: 'bollingerBandUpper',
-                    type: 'line',
-                    data: bollingerBandUpperData
+                const bollingerBandSeries = {
+                    name: 'bollingerBand',
+                    type: 'rangeArea',
+                    data: bollingerBandData
                 };
 
-                const bollingerBandLowerData = res.data.map(eachData => {
-                    return {
-                        x: new Date(eachData.date_timestamp),
-                        y: eachData.bollingerBandLower
-                    };
-                });
-                const bollingerBandLowerSeries = {
-                    name: 'bollingerBandLower',
-                    type: 'line',
-                    data: bollingerBandLowerData
-                };
-
-                setSeries([candleSeries, ma20Series, bollingerBandUpperSeries, bollingerBandLowerSeries]);
+                setSeries([candleSeries, ma20Series, bollingerBandSeries]);
             })
             .catch(error => {
                 console.error('Error fetching data:', error);

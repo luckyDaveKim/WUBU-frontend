@@ -4,35 +4,23 @@ import dayjs from 'dayjs';
 
 export default function CandlestickChart({ series }) {
     const options = {
-        series,
         chart: {
             height: 350,
-            type: 'line',
         },
-        title: {
-            text: 'CandleStick Chart - Category X-axis',
-            align: 'left'
+        colors: ['#d4526e', '#33b2df', '#d4526e', '#33b2df'],
+        dataLabels: {
+            enabled: false
         },
-        annotations: {
-            xaxis: [
-                {
-                    x: 'Oct 06 14:00',
-                    borderColor: '#00E396',
-                    label: {
-                        borderColor: '#00E396',
-                        style: {
-                            fontSize: '12px',
-                            color: '#fff',
-                            background: '#00E396'
-                        },
-                        orientation: 'horizontal',
-                        offsetY: 7,
-                        text: 'Annotation Test'
-                    }
-                }
-            ]
+        fill: {
+            opacity: [1, 1, 0.24]
         },
-        // FIXME : tooltip 설정 필요, OHLC 값만 표현되도록....
+        forecastDataPoints: {
+            count: 2
+        },
+        stroke: {
+            curve: 'straight',
+            width: [0.25, 1, 0]
+        },
         tooltip: {
             enabled: true,
         },
@@ -54,7 +42,7 @@ export default function CandlestickChart({ series }) {
     return (
         <ReactApexChart
             options={options}
-            series={options.series}
+            series={series}
             type="candlestick"
         />
     );
