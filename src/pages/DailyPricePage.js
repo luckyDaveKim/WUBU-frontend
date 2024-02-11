@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import RangeDatePicker from '../components/RangeDatePicker';
+import DateRangePicker from '../components/DateRangePicker';
 import CompanySelector from '../components/CompanySelector';
 import Chart from '../components/Chart';
 import ChartD3 from '../components/ChartD3';
@@ -22,7 +22,7 @@ export default function DailyPricePage() {
 
     return (
         <>
-            <RangeDatePicker onChangeRangeDate={onChangeRangeDate} />
+            <DateRangePicker onChangeRangeDate={onChangeRangeDate} />
             <CompanySelector onChangeCompany={onChangeCompany} />
             {/*{!!selectedCompany*/}
             {/*    && !!selectedRangeDate?.startDate && !!selectedRangeDate?.endDate*/}
