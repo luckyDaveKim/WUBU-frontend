@@ -9,6 +9,10 @@ export default function Layout() {
         {
             href: '/daily-price',
             title: 'Daily price',
+        },
+        {
+            href: '/analysis',
+            title: 'Analysis',
         }
     ];
 
