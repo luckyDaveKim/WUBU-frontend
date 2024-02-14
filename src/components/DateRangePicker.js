@@ -3,13 +3,14 @@ import dayjs from 'dayjs';
 import DatePicker from './DatePicker';
 
 const DATE_FORMAT = 'YYYY-MM-DD';
-const DEFAULT_MONTH_RANGE = 3;
-export default function DateRangePicker({ onChangeRangeDate }) {
-    const today = dayjs();
-    const lastMonthDay = today.subtract(DEFAULT_MONTH_RANGE, 'month');
+const DEFAULT_DAYS_RANGE = 90;
+export default function DateRangePicker({ startDateText: _startDateText, endDateText: _endDateText, daysRange, onChangeRangeDate }) {
+    const endDate = !!_endDateText ? dayjs(_endDateText) : dayjs();
+    const defaultDaysRange = daysRange || DEFAULT_DAYS_RANGE;
+    const startDate = !!_startDateText ? dayjs(_startDateText) : endDate.subtract(defaultDaysRange, 'days');
 
-    const [startDateText, setStartDateText] = useState(lastMonthDay.format(DATE_FORMAT));
-    const [endDateText, setEndDateText] = useState(today.format(DATE_FORMAT));
+    const [startDateText, setStartDateText] = useState(startDate.format(DATE_FORMAT));
+    const [endDateText, setEndDateText] = useState(endDate.format(DATE_FORMAT));
 
     const onChangeStartDate = (dateText) => {
         setStartDateText(dateText);
@@ -27,7 +28,7 @@ export default function DateRangePicker({ onChangeRangeDate }) {
             throw new Error(`시작 값이 종료 값보다 큽니다!!! startDate: ${startDateText}, endDate: ${endDateText}`);
         }
 
-        onChangeRangeDate({ startDate: startDateText, endDate: endDateText });
+        onChangeRangeDate({ startDateText, endDateText });
     }, [startDateText, endDateText]);
 
     return (

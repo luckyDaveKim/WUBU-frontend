@@ -9,11 +9,11 @@ const getDailyPriceUri = (companyCode, startDate, endDate) => {
     return `http://localhost:8000/api/companies/${companyCode}/price/daily?startDate=${startDate}&endDate=${endDate}&strategyNames=bollingerBand`;
 };
 export default function DailyPricePage() {
-    const [selectedRangeDate, setSelectedRangeDate] = useState({});
+    const [selectedRangeDateText, setSelectedRangeDateText] = useState({});
     const [selectedCompany, setSelectedCompany] = useState('');
 
-    const onChangeRangeDate = ({ startDate, endDate }) => {
-        setSelectedRangeDate({ startDate, endDate });
+    const onChangeRangeDate = ({ startDateText, endDateText }) => {
+        setSelectedRangeDateText({ startDateText, endDateText });
     };
 
     const onChangeCompany = ({ target }) => {
@@ -31,9 +31,9 @@ export default function DailyPricePage() {
             {/*    )}*/}
 
             {!!selectedCompany
-                && !!selectedRangeDate?.startDate && !!selectedRangeDate?.endDate
+                && !!selectedRangeDateText?.startDateText && !!selectedRangeDateText?.endDateText
                 && (
-                    <Chart uri={getDailyPriceUri(selectedCompany, selectedRangeDate?.startDate, selectedRangeDate?.endDate)} />
+                    <Chart uri={getDailyPriceUri(selectedCompany, selectedRangeDateText?.startDate, selectedRangeDateText?.endDate)} />
                 )}
 
             {/*{!!selectedCompany

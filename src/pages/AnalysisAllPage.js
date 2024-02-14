@@ -6,9 +6,9 @@ const getCompaniesUri = () => {
     return `http://localhost:8000/api/companies`;
 };
 const getAnalysisUri = (targetDateText) => {
-    return `http://localhost:8000/api/analysis?targetDate=${targetDateText}`;
+    return `http://localhost:8000/api/analysis?analysisDate=${targetDateText}`;
 };
-export default function AnalysisPage() {
+export default function AnalysisAllPage() {
     const [selectedDateText, setSelectedDateText] = useState('');
 
     const onChangeDate = (dateText) => {

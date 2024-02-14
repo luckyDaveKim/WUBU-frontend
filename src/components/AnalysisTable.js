@@ -35,11 +35,17 @@ export default function AnalysisTable({ companiesUri, analysisUri }) {
             </tr>
             </thead>
             <tbody>
-            {!_.isEmpty(companies) && tableData.map(
-                ({ code, analysis_date }) => (
-                    <AnalysisTableRow key={`analysis-row-${code}`} companyName={companies[code]?.company} code={code} analysisDate={analysis_date} matched_rule={true} />
-                )
-            )}
+            {!_.isEmpty(companies) && tableData
+                .filter(({ rules }) => rules?.default?.matched_rule)
+                .map(
+                    ({ code, analysis_date, rules }) => (
+                        <AnalysisTableRow key={`analysis-row-${code}`}
+                                          companyName={companies[code]?.company}
+                                          code={code}
+                                          analysisDate={analysis_date}
+                                          matched_rule={rules?.default?.matched_rule} />
+                    )
+                )}
             </tbody>
         </table>
     );
